@@ -1,0 +1,57 @@
+//** Border Utils:
+//## Local module to component.
+
+// Core Styling
+
+@mixin border($value) {
+    border: $value;
+    @include box-sizing();
+}
+
+@mixin box-sizing($value: border-box) {
+    -webkit-box-sizing: $value !important;
+    -moz-box-sizing: $value !important;
+    -ms-box-sizing: $value !important;
+    box-sizing: $value !important;
+}
+
+@mixin border-radius($type, $radius) {
+    @if $type == 'all' {
+        border-radius: $radius;
+        -moz-border-radius: $radius;
+        -webkit-border-radius: $radius;
+    } @else if $type == 'left' {
+        border-radius: $radius 0px 0px $radius;
+        -moz-border-radius: $radius 0px 0px $radius;
+        -webkit-border-radius: $radius 0px 0px $radius;
+    } @else if $type == 'right' {
+        border-radius: 0px $radius $radius 0px;
+        -moz-border-radius: 0px $radius $radius 0px;
+        -webkit-border-radius: 0px $radius $radius 0px;
+    } @else if $type == 'top' {
+        border-radius: $radius $radius 0px 0px;
+        -moz-border-radius: $radius $radius 0px 0px;
+        -webkit-border-radius: $radius $radius 0px 0px;
+    }
+}
+
+@mixin box-shadow($value) {
+    // @if $type == 'all' {
+    -moz-box-shadow: $value;
+    -webkit-box-shadow: $value;
+    box-shadow: $value;
+    // } @else if $type == 'top-left' {
+    // } @else if $type == 'top-right' {
+    // } @else if $type == 'bottom-right' {
+    // } @else if $type == 'bottom-left' {
+    // }
+}
+
+@mixin remove-raidus-corners() {
+    -webkit-perspective: 1000;
+    -webkit-backface-visibility: hidden;
+    -webkit-transform: translate3d(0, 0, 0);
+    outline: none;
+    border: none;
+    text-decoration: none;
+}

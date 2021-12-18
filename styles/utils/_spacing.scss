@@ -1,0 +1,10 @@
+//** Spacing:
+//## Local module to component.
+
+// Core Styling
+
+@mixin space-between($justify: space-between) {
+    display: flex;
+    justify-content: $justify;
+    align-items: center;
+}
